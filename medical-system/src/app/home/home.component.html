@@ -1,0 +1,108 @@
+<div class="flex flex-col min-h-screen bg-gray-100">
+  <nav class="bg-blue-600 shadow-lg p-4">
+    <div class="container mx-auto flex items-center justify-between">
+      <a href="#" class="text-white font-bold py-2 px-4"> </a>
+      <a href="#" class="text-white font-bold py-2 px-4">Profile</a>
+      <a href="#" class="text-white font-bold py-2 px-4"> </a>
+    </div>
+  </nav>
+
+  <div class="flex flex-col items-center justify-center flex-1">
+    <!-- Patient Profile Page -->
+    <div
+      *ngIf="!editing"
+      class="bg-white shadow-2xl rounded-lg p-6 md:p-8 lg:p-10 my-8"
+    >
+      <h2 class="text-3xl font-bold text-blue-800 mb-4">Patient Profile</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-600 font-medium mb-2">Name</p>
+          <p class="text-gray-800 font-bold">{{ user.name }}</p>
+        </div>
+
+        <div>
+          <p class="text-gray-600 font-medium mb-2">Email</p>
+          <p class="text-gray-800 font-bold">{{ user.email }}</p>
+        </div>
+        <div>
+          <p class="text-gray-600 font-medium mb-2">Phone</p>
+          <p class="text-gray-800 font-bold">{{ user.phoneNumber }}</p>
+        </div>
+        <div>
+          <p class="text-gray-600 font-medium mb-2">Date of Birth</p>
+          <p class="text-gray-800 font-bold">{{ user.dob }}</p>
+        </div>
+        <div>
+          <p class="text-gray-600 font-medium mb-2">Address</p>
+          <p class="text-gray-800 font-bold">{{ user.address }}</p>
+        </div>
+      </div>
+      <button
+        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4"
+        (click)="editingClicked()"
+      >
+        Edit Profile
+      </button>
+    </div>
+    <div
+      *ngIf="editing"
+      class="bg-white shadow-2xl rounded-lg p-6 md:p-8 lg:p-10 my-8"
+    >
+      <h2 class="text-3xl font-bold text-blue-800 mb-4">Edit Profile</h2>
+      <form [formGroup]="infoForm" (ngSubmit)="saveChanges()">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="name">Name:</label>
+            <input
+              formControlName="name"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              placeholder="Enter name"
+            />
+          </div>
+          <div>
+            <label for="dob">Date of Birth:</label>
+            <input
+              formControlName="dob"
+              type="date"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input
+              formControlName="email"
+              type="email"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              placeholder="Enter email"
+            />
+          </div>
+          <div>
+            <label for="phone">Phone:</label>
+            <input
+              formControlName="phoneNumber"
+              type="tel"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              placeholder="Enter phone number"
+            />
+          </div>
+          <div>
+            <label for="address">Address:</label>
+            <input
+              formControlName="address"
+              class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              placeholder="Enter address"
+            />
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg mt-4"
+        >
+          Save Changes
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+</div>

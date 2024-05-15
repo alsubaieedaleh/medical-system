@@ -1,0 +1,28 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 min-h-screen items-center">
+  <div class="flex flex-col space-y-8">
+    <h2 class="text-4xl font-extrabold text-center text-gray-900">Register</h2>
+    <form class="flex flex-col space-y-4 p-32" *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="flex flex-col space-y-2">
+        <label for="email" class="text-gray-700">Email address</label>
+        <input id="email" formControlName="email" type="email" class="border rounded-md px-3 py-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      </div>
+      <div class="flex flex-col space-y-2">
+        <label for="phoneNo" class="text-gray-700">Phone number</label>
+        <input id="phoneNo" formControlName="phoneNo" type="phoneNo" class="border rounded-md px-3 py-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      </div>
+      <div class="flex flex-col space-y-2">
+        <label for="password" class="text-gray-700">Password</label>
+        <input id="password" formControlName="password" type="password" class="border rounded-md px-3 py-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      </div>
+      <div class="flex flex-col space-y-2">
+        <label for="confirm-password" class="text-gray-700">Confirm Password</label>
+        <input id="confirm-password" formControlName="confirmPassword" type="password" class="border rounded-md px-3 py-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+      </div>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Register</button>
+      <a href="/signin" class="text-blue-500 hover:underline ">Already have an account?</a>
+    </form>
+    <div class="flex items-center justify-between">
+    </div>
+  </div>
+  <img src="../../assets/RPH-Medical-Patient-Room1_REM0075_27aef0d2f4171c8b0fe5d926ed95ebdb.jpg" class="h-full object-cover rounded-md" alt="">
+</div>
